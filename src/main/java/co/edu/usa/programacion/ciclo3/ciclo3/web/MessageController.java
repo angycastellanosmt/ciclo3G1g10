@@ -4,8 +4,8 @@
  */
 package co.edu.usa.programacion.ciclo3.ciclo3.web;
 
-import co.edu.usa.programacion.ciclo3.ciclo3.model.Car;
-import co.edu.usa.programacion.ciclo3.ciclo3.service.CarService;
+import co.edu.usa.programacion.ciclo3.ciclo3.model.Message;
+import co.edu.usa.programacion.ciclo3.ciclo3.service.MessageService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,27 +25,27 @@ import org.springframework.web.bind.annotation.RestController;
  * @author angycastel
  */
 @RestController
-@RequestMapping("/api/Car")
+@RequestMapping("/api/Message")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
-public class CarController {
+public class MessageController {
     
     @Autowired
-    private CarService carService;
+    private MessageService messageService;
 
-// Método para obtener todos los carros   
+// Método para obtener todos los mensajes  
     @GetMapping("/all")
-    public List<Car> getCars(){
-        return carService.getAll();
+    public List<Message> getMensajes(){
+        return messageService.getAll();
     }
     
     @GetMapping("/{id}")
-    public Optional<Car> getCar(@PathVariable("id") int idCar){
-        return carService.getCar(idCar);
+    public Optional<Message> getMessage(@PathVariable("id") int idMessage){
+        return messageService.getMessage(idMessage);
     }
     
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Car save(@RequestBody Car carro){
-        return carService.save(carro);
+    public Message save(@RequestBody Message mensaje){
+        return messageService.save(mensaje);
     }
 }

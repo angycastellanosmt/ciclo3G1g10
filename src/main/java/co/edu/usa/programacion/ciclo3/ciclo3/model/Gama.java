@@ -21,24 +21,26 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "gama")
-public class Gama implements Serializable{
+public class Gama implements Serializable {
     
     @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idGama;
+    
     private String name;
+    
     private String description;
     
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "gama")
-     @JsonIgnoreProperties("gama")
-    public List<Car> carros;
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "gama")
+    @JsonIgnoreProperties("gama")
+    public List<Car> cars;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdGama() {
+        return idGama;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdGama(Integer idGama) {
+        this.idGama = idGama;
     }
 
     public String getName() {
@@ -57,14 +59,13 @@ public class Gama implements Serializable{
         this.description = description;
     }
 
-    public List<Car> getCarros() {
-        return carros;
+    public List<Car> getCars() {
+        return cars;
     }
 
-    public void setCarros(List<Car> carros) {
-        this.carros = carros;
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 
-    
-    
+        
 }

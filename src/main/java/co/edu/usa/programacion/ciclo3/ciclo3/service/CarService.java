@@ -25,15 +25,15 @@ public class CarService {
         return carRepository.getAll();
     }
     
-    public Optional<Car> getCar (int id){
-        return carRepository.getCar(id);
+    public Optional<Car> getCar (int idCar){
+        return carRepository.getCar(idCar);
     }
     
     public Car save(Car carro){
-        if (carro.getId()==null){
+        if (carro.getIdCar()==null){
             return carRepository.save(carro);    
         }else{
-            Optional <Car> carroaux=carRepository.getCar(carro.getId());
+            Optional <Car> carroaux=carRepository.getCar(carro.getIdCar());
             if (carroaux.isEmpty()){
                 return carRepository.save(carro); 
             }return carro;

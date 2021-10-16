@@ -39,8 +39,8 @@ public class GamaController {
     }
     
     @GetMapping("/{id}")
-    public Optional<Gama> getGama(@PathVariable("id") int id){
-        return gamaService.getGama(id);
+    public Optional<Gama> getGama(@PathVariable("id") int idGama){
+        return gamaService.getGama(idGama);
     }
     
     @PostMapping("/save")

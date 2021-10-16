@@ -6,12 +6,15 @@ package co.edu.usa.programacion.ciclo3.ciclo3.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -19,28 +22,35 @@ import javax.persistence.Table;
  * @author angycastel
  */
 @Entity
-@Table(name = "car")
-public class Car implements Serializable {
+@Table(name = "Car")
+public class Car implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idCar;
+    private String name;
+    private String brand;
+    private Integer year;
+    private String description;
     
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer id;
-  private String name;
-  private String brand;
-  private Integer year;
-  private String description;
-  
-  @ManyToOne
-  @JoinColumn(name="gamaId")
-  @JsonIgnoreProperties("carros")
-  private Gama gama;
+    @ManyToOne
+    @JoinColumn(name = "idGama")
+    @JsonIgnoreProperties("cars")
+    private Gama gama;
+    
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
+    @JsonIgnoreProperties({"car","client"})
+    private List<Message> messages;
+    
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
+    @JsonIgnoreProperties("car")
+    private List<Reservation> reservations;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdCar() {
+        return idCar;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdCar(Integer idCar) {
+        this.idCar = idCar;
     }
 
     public String getName() {
@@ -83,5 +93,21 @@ private Integer id;
         this.gama = gama;
     }
 
-  
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    
 }

@@ -25,18 +25,18 @@ public class GamaService {
         return gamaRepository.getAll();
     }
     
-    public Optional<Gama> getGama (int id){
-        return gamaRepository.getGama(id);
+    public Optional<Gama> getGama (int idGama){
+        return gamaRepository.getGama(idGama);
     }
     
-    public Gama save(Gama gamas){
-        if (gamas.getId()==null){
-            return gamaRepository.save(gamas);    
+    public Gama save(Gama gama){
+        if (gama.getIdGama()==null){
+            return gamaRepository.save(gama);    
         }else{
-            Optional <Gama> gamaaux=gamaRepository.getGama(gamas.getId());
+            Optional <Gama> gamaaux=gamaRepository.getGama(gama.getIdGama());
             if (gamaaux.isEmpty()){
-                return gamaRepository.save(gamas); 
-            }return gamas;
+                return gamaRepository.save(gama); 
+            }return gama;
         }
     }
 }
