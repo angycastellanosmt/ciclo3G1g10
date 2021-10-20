@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Formularios Gestor Carros</title>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="misFunciones.js"></script>
+        <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        </style>
+    </head>
+    <body Onload="cargarGama()">
+        <h1>Gestor Renta Carros</h1>
+    <br>
+    <h2 style="color:blue;">Formulario 1: Gama</h2>
+    <h3>Registro de Gamas</h3>
+    <div>
+        <input type="text" id="name" placeholder="name">
+        <input type="text" id="description" placeholder="description">
+    </div>
+    <br>
+    <button onclick="guardarInformacionGama()">Guardar!</button>
+    <br>
+    <h3>Lista de gamas registradas</h3>
+    <div id="resultadoGama"></div>
+    <br>
+    <button onclick="traerInformacionGama()">Consultar</button>
+    <br>
+    <br>
+    <!--
+    <h3>Detalle de gamas para edición</h3>
+
+    <div>
+        <input type="number" id="idGama2" placeholder="idGama" readonly>
+        <input type="text" id="name2" placeholder="name">
+        <input type="text" id="description2" placeholder="description">
+       
+    </div>
+    <br>
+    <button onclick="editarInformacionGama()">Actualizar!</button>
+    
+    <br>-->
+    <h2 style="color:blue;">Formulario 2: Carros</h2>
+   
+    <h3>Registro de Carros</h3>
+    <div>
+        <input type="text" id="cname" placeholder="name">
+        <input type="text" id="brand" placeholder="brand">
+        <input type="text" id="year" placeholder="year">
+        <input type="text" id="cdescription" placeholder="description">
+        <select name="gama" id="selectGama">
+        <option value="">Seleccione una gama</option>
+      </select>
+    </div>
+    <br>
+    <button onclick="guardarInformacionCarros()">Guardar!</button>
+    <br>
+    <h3>Lista de carros registrados</h3>
+    <div id="resultadoCarros"></div>
+    <br>
+    <button onclick="traerInformacionCarros()">Consultar</button>
+    <br>
+    <br>
+    
+    <h2 style="color:blue;">Formulario 3: Clientes</h2>
+   
+    <h3>Registro de Clientes</h3>
+    <div>
+        <input type="text" id="email" placeholder="email">
+        <input type="text" id="password" placeholder="password">
+        <input type="text" id="clname" placeholder="name">
+        <input type="number" id="age" placeholder="age">
+    </div>
+    <br>
+    <button onclick="guardarInformacionClientes()">Guardar!</button>
+    <br>
+    <h3>Lista de clientes registrados</h3>
+    <div id="resultadoClientes"></div>
+    <br>
+    <button onclick="traerInformacionClientes()">Consultar</button>
+    <br>
+    <br>
+    <h2 style="color:blue;">Formulario 4: Mensajes</h2>
+   
+    <h3>Registro de Mensajes</h3>
+    <div>
+        <input type="text" id="messageText" placeholder="messageText">
+        
+    </div>
+    <br>
+    <button onclick="guardarInformacionMensaje()">Guardar!</button>
+    <br>
+    <h3>Lista de mensajes registrados</h3>
+    <div id="resultadoMensaje"></div>
+    <br>
+    <button onclick="traerInformacionMensaje()">Consultar</button>
+    <br>
+    <br>
+    <h2 style="color:blue;">Formulario 5: Reservas</h2>
+   
+    <h3>Registro de Reservas</h3>
+    <div>
+        <input type="date" id="startDate" placeholder="startDate">
+        <input type="date" id="devolutionDate" placeholder="devolutionDate">
+        
+    </div>
+    <br>
+    <button onclick="guardarInformacionReservacion()">Guardar!</button>
+    <br>
+    <h3>Lista de reservas registradas</h3>
+    <div id="resultadoReservacion"></div>
+    <br>
+    <button onclick="traerInformacionReservacion()">Consultar</button>
+    <br>
+    <br>
+    
+    </body>
+</html>
