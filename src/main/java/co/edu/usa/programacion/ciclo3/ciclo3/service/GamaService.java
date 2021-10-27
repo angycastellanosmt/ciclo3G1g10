@@ -39,4 +39,30 @@ public class GamaService {
             }return gama;
         }
     }
+    
+    public Gama update(Gama gama){
+        if (gama.getIdGama()!= null){
+            Optional<Gama>gamaaux=gamaRepository.getGama(gama.getIdGama());
+            if(!gamaaux.isEmpty()){
+                if(gama.getName()!=null){
+                    gamaaux.get().setName(gama.getName());
+                }
+                if(gama.getDescription()!=null){
+                    gamaaux.get().setDescription(gama.getDescription());
+                }
+                
+                return gamaRepository.save(gamaaux.get());
+            }
+        }
+        return gama;
+    }
+    
+    public boolean deleteGama (int idGama){
+        Optional<Gama> gamaaux=getGama(idGama);
+        if(!gamaaux.isEmpty()){
+            gamaRepository.delete(gamaaux.get());
+            return true;
+        }
+        return false;
+    }
 }

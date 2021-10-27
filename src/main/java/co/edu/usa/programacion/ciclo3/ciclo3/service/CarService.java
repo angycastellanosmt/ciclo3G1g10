@@ -39,4 +39,35 @@ public class CarService {
             }return carro;
         }
     }
+    
+    public Car update(Car carro){
+        if (carro.getIdCar()!= null){
+            Optional<Car>carroaux=carRepository.getCar(carro.getIdCar());
+            if(!carroaux.isEmpty()){
+                if(carro.getName()!=null){
+                    carroaux.get().setName(carro.getName());
+                }
+                if(carro.getBrand()!=null){
+                    carroaux.get().setBrand(carro.getBrand());
+                }
+                if(carro.getYear()!=null){
+                    carroaux.get().setYear(carro.getYear());
+                }
+                if(carro.getDescription()!=null){
+                    carroaux.get().setDescription(carro.getDescription());
+                }
+                return carRepository.save(carroaux.get());
+            }
+        }
+        return carro;
+    }
+    
+    public boolean deleteCar (int idCar){
+        Optional<Car> carroaux=getCar(idCar);
+        if(!carroaux.isEmpty()){
+            carRepository.delete(carroaux.get());
+            return true;
+        }
+        return false;
+    }
 }

@@ -33,7 +33,7 @@ public class Gama implements Serializable {
     
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "gama")
     @JsonIgnoreProperties("gama")
-    public List<Car> cars;
+    private List<Car> cars;
 
     public Integer getIdGama() {
         return idGama;

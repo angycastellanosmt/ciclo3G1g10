@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
 @EntityScan(basePackages = {"co.edu.usa.programacion.ciclo3.ciclo3.model"})
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
+@SpringBootApplication
 public class Ciclo3Application {
 
 	public static void main(String[] args) {

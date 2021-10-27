@@ -38,4 +38,27 @@ public class MessageService {
             }return message;
         }
     }
+    
+    public Message update(Message mensaje){
+        if (mensaje.getIdMessage()!= null){
+            Optional<Message>mensajeaux=messageRepository.getMessage(mensaje.getIdMessage());
+            if(!mensajeaux.isEmpty()){
+                if(mensaje.getMessageText()!=null){
+                    mensajeaux.get().setMessageText(mensaje.getMessageText());
+                }
+                
+                return messageRepository.save(mensajeaux.get());
+            }
+        }
+        return mensaje;
+    }
+    
+    public boolean deleteMessage (int idMessage){
+        Optional<Message> mensajeaux=getMessage(idMessage);
+        if(!mensajeaux.isEmpty()){
+            messageRepository.delete(mensajeaux.get());
+            return true;
+        }
+        return false;
+    }
 }
