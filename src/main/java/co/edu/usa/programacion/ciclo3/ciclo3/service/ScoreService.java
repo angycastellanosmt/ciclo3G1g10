@@ -43,11 +43,11 @@ public class ScoreService {
         if (score.getIdScore()!= null){
             Optional<Score>scoreaux=scoreRepository.getScore(score.getIdScore());
             if(!scoreaux.isEmpty()){
-                if(score.getScore()!=null){
-                    scoreaux.get().setScore(score.getScore());
+                if(score.getStars()!=null){
+                    scoreaux.get().setStars(score.getStars());
                 }
-                if(score.getMessage()!=null){
-                    scoreaux.get().setMessage(score.getMessage());
+                if(score.getMessageText()!=null){
+                    scoreaux.get().setMessageText(score.getMessageText());
                 }
                 
                 return scoreRepository.save(scoreaux.get());
