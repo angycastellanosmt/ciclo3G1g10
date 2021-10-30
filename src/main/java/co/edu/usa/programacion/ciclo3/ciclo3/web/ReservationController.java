@@ -5,6 +5,8 @@
 package co.edu.usa.programacion.ciclo3.ciclo3.web;
 
 import co.edu.usa.programacion.ciclo3.ciclo3.model.Reservation;
+import co.edu.usa.programacion.ciclo3.ciclo3.model.custom.CountClient;
+import co.edu.usa.programacion.ciclo3.ciclo3.model.custom.StatusAmount;
 import co.edu.usa.programacion.ciclo3.ciclo3.service.ReservationService;
 import java.util.List;
 import java.util.Optional;
@@ -63,4 +65,20 @@ public class ReservationController {
     public boolean deleteReservation (@PathVariable("id") int idReservation){
         return reservationService.deleteReservation(idReservation);
     }
+    
+    @GetMapping("/report-status")
+    public StatusAmount getReservationStatus(){
+        return reservationService.getStatusReport();
+    }
+    
+    @GetMapping("report-clients")
+    public List<CountClient> getCountClient(){
+        return reservationService.getTopClients();
+    }
+    
+    @GetMapping("report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getDatesReport(@PathVariable("dateOne") String d1, @PathVariable("dateTwo") String d2){
+        return reservationService.getReservationPeriod(d1, d2);
+    }
+    
 }
