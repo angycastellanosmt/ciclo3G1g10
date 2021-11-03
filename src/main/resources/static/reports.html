@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>Reportes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/funcionesReports.js"></script>
+        <link rel="stylesheet" href="misestilos.css">
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-color:#156EC8;
+            }
+            th, td {
+                text-align: center;
+            }
+        </style>
+    </head>
+<body>
+  
+    <div>
+    <h1>Reportes </h1>
+    </div>
+  <nav id="menuprincipal">
+    <div>
+    <ul>
+    <li><a href="index.html">Principal</a></li>
+    <li><a href="gama.html">Gamas</a></li>
+    <li><a href="car.html">Carros</a></li>
+    <li><a href="client.html">Clientes</a></li>
+    <li><a href="message.html">Mensajes</a></li>
+    <li><a href="reservation.html">Reservaciones</a></li>
+    <li><a href="score.html">Calificaciones</a></li>
+    <li><a href="reports.html">Reportes</a></li>
+    <li><a href="admin.html">Usuarios Administradores</a></li>
+    </ul>
+    </div>
+    </nav>
+
+    <button onclick="traerReporteStatus()"> Generar Reporte Status Reservas </button>
+    <div id="resultadoStatus"></div>
+    <br>
+     
+    <button onclick="traerReporteDate()"> Generar Reporte por fecha </button>
+    <br>
+    <br>
+    <label>Fecha inicio</label>
+    <input type="date" id="RstarDate">
+    <br>
+    <label>Fecha fin</label>
+    <input type="date" id="RdevolutionDate">
+    <br>
+    <br>
+    <div id="resultadoDate"></div>
+
+    <br>
+    <br>
+    <button onclick="traerReporteClientes()"> Generar Reporte Clientes y Cantidad de reservas por cliente </button>
+    <div id="resultadoClientes"></div>
+
+</body>
+</html>

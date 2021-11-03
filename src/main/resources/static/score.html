@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <title>Gestor de Calificaciones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/funcionesScore.js"></script>
+        <link rel="stylesheet" href="misestilos.css">
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-color:#156EC8;
+            }
+            th, td {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+     <h1>Gestor de Calificaciones</h1>
+        <br>
+            <nav id="menuprincipal">
+    <div>
+    <ul>
+    <li><a href="index.html">Principal</a></li>
+    <li><a href="gama.html">Gamas</a></li>
+    <li><a href="car.html">Carros</a></li>
+    <li><a href="client.html">Clientes</a></li>
+    <li><a href="message.html">Mensajes</a></li>
+    <li><a href="reservation.html">Reservaciones</a></li>
+    <li><a href="score.html">Calificaciones</a></li>
+    <li><a href="reports.html">Reportes</a></li>
+    <li><a href="admin.html">Usuarios Administradores</a></li>
+    </ul>
+    </div>
+    </nav>
+        <br>
+        <h2>Registro de Calificaciones</h2>
+        <div>
+        <input type="text" id="messagetext" placeholder="mensaje">
+        <input type="number" id="stars" placeholder="estrellas">
+        <select id="selectReservation">
+                <option value="">Seleccione una reserva</option>
+            </select>
+               <script> window.onload=autoInicioReserva();</script>
+    </div>
+    <br>
+    <button onclick="guardarInformacionCalificacion()">Guardar!</button>
+    <br>
+    <h2>Lista de calificaciones registradas</h2>
+    <div id="resultadoCalificacion"></div>
+    <br>
+    <button onclick="traerInformacionCalificacion()">Consultar</button>
+    <br>
+    <br>
+        <br>
+        <h2>Detalle de calificación para edición</h2>
+
+    <div>
+        <input type="number" id="idScore2" placeholder="id" readonly>
+        <input type="text" id="messagetext2" placeholder="mensaje">
+        <input type="number" id="stars2" placeholder="estrellas">
+        <input id="selectReservation2" placeholder="reservation" readonly>
+    </div>
+    <br>
+    <button onclick="editarInformacionCalif()">Actualizar!</button>
+    
+    <br>
+    </body>
+</html>

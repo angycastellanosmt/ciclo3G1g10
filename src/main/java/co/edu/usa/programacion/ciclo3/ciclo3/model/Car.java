@@ -26,23 +26,47 @@ import javax.persistence.Table;
 public class Car implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+   /**
+    * Variable idCar de tipo entero, llave de tabla
+    */
     private Integer idCar;
+    /**
+     * Variable name de tipo texto
+     */
     private String name;
+    /**
+     * Variable brand de tipo texto
+     */
     private String brand;
+    /**
+     * Variable año de tipo entero
+     */
     private Integer year;
+    /**
+     * Variable descripción de tipo string
+     */
     private String description;
     
     @ManyToOne
     @JoinColumn(name = "idGama")
     @JsonIgnoreProperties("cars")
+    /**
+     * Variable gama de tipo Gama (objeto)
+     */
     private Gama gama;
     
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
     @JsonIgnoreProperties({"car","client"})
+    /**
+     * Variable messages de tipo lista mensaje
+     */
     private List<Message> messages;
     
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
     @JsonIgnoreProperties("car")
+    /**
+     * Variable reservations de tipo lista reservacion
+     */
     private List<Reservation> reservations;
 
     public Integer getIdCar() {

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Gestor de clientes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/funcionesClient.js"></script>
+        <link rel="stylesheet" href="misestilos.css">
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-color:#156EC8;
+            }
+            th, td {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+      <h1>Gestor de clientes</h1>
+        <br>
+            <nav id="menuprincipal">
+    <div>
+    <ul>
+    <li><a href="index.html">Principal</a></li>
+    <li><a href="gama.html">Gamas</a></li>
+    <li><a href="car.html">Carros</a></li>
+    <li><a href="client.html">Clientes</a></li>
+    <li><a href="message.html">Mensajes</a></li>
+    <li><a href="reservation.html">Reservaciones</a></li>
+    <li><a href="score.html">Calificaciones</a></li>
+    <li><a href="reports.html">Reportes</a></li>
+    <li><a href="admin.html">Usuarios Administradores</a></li>
+    </ul>
+    </div>
+    </nav>
+        <br>
+        <h2>Registro de Clientes</h2>
+    <div>
+        <input type="text" id="email" placeholder="email">
+        <input type="text" id="password" placeholder="password">
+        <input type="text" id="clname" placeholder="name">
+        <input type="number" id="age" placeholder="age">
+    </div>
+    <br>
+    <button onclick="guardarInformacionClientes()">Guardar!</button>
+    <br>
+    <h2>Lista de clientes registrados</h2>
+    <div id="resultadoClientes"></div>
+    <br>
+    <button onclick="traerInformacionClientes()">Consultar</button>
+    <br>
+    <br>
+        <h2>Detalle de clientes para edición</h2>
+    <div>
+         <input type="number" id="idClient2" placeholder="id" readonly>
+        <input type="text" id="email2" placeholder="email">
+        <input type="text" id="password2" placeholder="password" readonly>
+        <input type="text" id="clname2" placeholder="name">
+        <input type="number" id="age2" placeholder="age">
+    </div>
+         <br>
+    <button onclick="editarInfoClientes()">Actualizar!</button>
+    
+    <br>
+    </body>
+</html>

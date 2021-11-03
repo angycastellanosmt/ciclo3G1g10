@@ -116,8 +116,7 @@ public class ReservationService {
     public StatusAmount getStatusReport(){
     List<Reservation> completed=reservationRepository.getReservationsbyStatus("completed");
     List<Reservation> cancelled=reservationRepository.getReservationsbyStatus("cancelled");
-    StatusAmount statAmt= new StatusAmount(completed.size(), cancelled.size());
-    return statAmt;
+    return new StatusAmount(completed.size(), cancelled.size());   
 }
 
     /**
@@ -126,15 +125,15 @@ public class ReservationService {
      * @param d2: fecha final
      * @return cantidad de r4eservas hechas en un tiempo determinado, dadas fecha inicial y final
      */
-    public List<Reservation> getReservationPeriod(String d1, String d2){
+    public List<Reservation> getReservationPeriod(String date1, String date2){
         //yyyy-MM-dd
         SimpleDateFormat parser=new SimpleDateFormat("yyyy-MM-dd");
         Date dateOne=new Date();
         Date dateTwo=new Date();
         
         try{
-           dateOne=parser.parse(d1);
-           dateTwo=parser.parse(d2);
+           dateOne=parser.parse(date1);
+           dateTwo=parser.parse(date2);
         } catch (ParseException e){
                     e.printStackTrace();
         }
